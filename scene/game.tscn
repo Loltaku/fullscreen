@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctpbxiqpssdwu"]
+[gd_scene load_steps=5 format=4 uid="uid://ctpbxiqpssdwu"]
 
+[ext_resource type="Texture2D" uid="uid://qp4jrblyndat" path="res://assess/tile.png" id="2_33cqm"]
 [ext_resource type="PackedScene" uid="uid://c7x5sowinyf72" path="res://scene/player.tscn" id="2_dbls1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xwcet"]
+texture = ExtResource("2_33cqm")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_p1ry8"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_xwcet")
 
 [node name="Game" type="Node"]
 
@@ -14,3 +24,8 @@ offset_bottom = 90.0
 color = Color(0.933333, 1, 0.8, 1)
 
 [node name="player" parent="." instance=ExtResource("2_dbls1")]
+position = Vector2(44, 5)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD//wIAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAD8/wIAAAAAAAAAAAD7/wIAAAAAAAAAAAAFAAIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_p1ry8")
